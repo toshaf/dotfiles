@@ -1,0 +1,26 @@
+syntax off
+
+set nobackup
+set noswapfile
+
+inoremap jk <esc>
+
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set smartindent
+set cursorline
+set cursorcolumn
+highlight cursorcolumn ctermbg=darkblue
+
+set shiftwidth=2
+set tabstop=2
+set number
+
+" go fmt on save
+command! Fmt execute ':silent !go fmt %' | execute ':e' | execute ':redraw!'
+autocmd! BufWritePost *.go :Fmt
+
+" python tabs
+autocmd BufRead,BufNewFile *.py setlocal ts=4 sw=4 expandtab

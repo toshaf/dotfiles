@@ -1,0 +1,1 @@
+eval "$(~/tool/homebrew/bin/brew shellenv)"

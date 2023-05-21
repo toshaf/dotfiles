@@ -1,22 +1,31 @@
-syntax off
-
 set nobackup
 set noswapfile
 
-inoremap jk <esc>
+" inoremap jk <esc>
 
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 set smartindent
-set cursorline
-set cursorcolumn
-highlight cursorcolumn ctermbg=darkblue
-
 set shiftwidth=2
 set tabstop=2
 set number
+set expandtab
+set cursorline
+set cursorcolumn
+set termguicolors
+set visualbell
+hi normal guibg=#222222 guifg=#bbbbbb
+hi nontext guibg=#222222 guifg=#444444
+hi cursorcolumn guibg=#111111 guifg=#bbbbbb
+hi linenr guibg=#222222 guifg=#888888
+hi cursorline cterm=none guibg=#222222 guifg=#eeeeee
+hi cursorlinenr cterm=none guibg=#222222 guifg=#dddddd
+hi search term=none cterm=none gui=none guibg=#222222 guifg=#ffa300
+hi incsearch term=none cterm=none gui=none guibg=#222222 guifg=#ffa300
+hi visual term=none cterm=bold gui=bold guibg=#222222 guifg=#ffa300
+hi matchparen term=none cterm=none gui=none guibg=#222222 guifg=#ffa300
 
 " go fmt on save
 command! Fmt execute ':silent !go fmt %' | execute ':e' | execute ':redraw!'
@@ -24,3 +33,37 @@ autocmd! BufWritePost *.go :Fmt
 
 " python tabs
 autocmd BufRead,BufNewFile *.py setlocal ts=4 sw=4 expandtab
+
+" rust tabs
+autocmd BufRead,BufNewFile *.rs setlocal ts=4 sw=4 expandtab
+
+" CTRL-P
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+" let g:ctrlp_show_hidden = 1
+" let g:ctrlp_prompt_mappings = {
+"     \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+"     \ 'AcceptSelection("t")': ['<cr>'],
+"     \ }
+
+" set runtimepath^=~/.vim/autoload/plug.vim
+
+" set runtimepath^=~/sauce/vim/plugins/example-plugin
+
+call plug#begin()
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#end()
+
+nnoremap <C-f> :Files <CR>
+nnoremap <C-p> :Files ~ <CR>
+nnoremap <C-i> :Ag . <CR>
+nnoremap <space> :! clear; 
+
+set runtimepath^=~/.vim/bundle/tosh.vim
+
+syntax off
+noremap <silent> <Left> :bp <CR>
+noremap <silent> <Right> :bn <CR>
+set hidden
+"set scrolloff=999

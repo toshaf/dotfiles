@@ -1,1 +1,4 @@
 eval "$(~/tool/homebrew/bin/brew shellenv)"
+export PATH=$PATH:/usr/local/texlive/2022basic/bin/universal-darwin
+export PATH=$PATH:~/miniconda3/bin
+export PATH=$PATH:~/sauce/java/mnj/cmd/public

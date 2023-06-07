@@ -23,8 +23,8 @@ hi linenr guibg=#222222 guifg=#888888
 hi cursorline cterm=none guibg=#222222 guifg=#eeeeee
 hi cursorlinenr cterm=none guibg=#222222 guifg=#dddddd
 hi search term=none cterm=none gui=none guibg=#222222 guifg=#ffa300
-hi incsearch term=none cterm=none gui=none guibg=#222222 guifg=#ffa300
-hi visual term=none cterm=bold gui=bold guibg=#222222 guifg=#ffa300
+hi incsearch term=reverse cterm=reverse gui=reverse guibg=#222222 guifg=#ffa300
+hi visual term=reverse cterm=reverse gui=reverse guibg=#222222 guifg=#ffa300
 hi matchparen term=none cterm=none gui=none guibg=#222222 guifg=#ffa300
 
 " go fmt on save

@@ -1,4 +1,19 @@
+set -o vi
 eval "$(~/tool/homebrew/bin/brew shellenv)"
 export PATH=$PATH:/usr/local/texlive/2022basic/bin/universal-darwin
 export PATH=$PATH:~/miniconda3/bin
 export PATH=$PATH:~/sauce/java/mnj/cmd/public
+
+export PATH_=$PATH
+
+setpath() {
+  export PATH=$JAVA_HOME/bin:$PATH_
+}
+
+java20() {
+  export JAVA_HOME=$(/usr/libexec/java_home -v 20)
+  setpath
+}
+
+# by default
+java20

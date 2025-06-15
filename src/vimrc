@@ -28,14 +28,18 @@ hi visual term=reverse cterm=reverse gui=reverse guibg=#222222 guifg=#ffa300
 hi matchparen term=none cterm=none gui=none guibg=#222222 guifg=#ffa300
 
 " go fmt on save
-command! Fmt execute ':silent !go fmt %' | execute ':e' | execute ':redraw!'
-autocmd! BufWritePost *.go :Fmt
+command! GoFmt execute ':silent !go fmt %' | execute ':e' | execute ':redraw!'
+autocmd! BufWritePost *.go :GoFmt
 
 " python tabs
 autocmd BufRead,BufNewFile *.py setlocal ts=4 sw=4 expandtab
 
 " rust tabs
 autocmd BufRead,BufNewFile *.rs setlocal ts=4 sw=4 expandtab
+
+" rust fmt on save
+command! RFmt execute ':silent !rustfmt --edition 2021 %' | execute ':e' | execute ':redraw!'
+autocmd! BufWritePost *.rs :RFmt
 
 " CTRL-P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
